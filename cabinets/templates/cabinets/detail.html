@@ -1,0 +1,29 @@
+{% extends 'cabinets/base.html' %}
+
+
+{% block content %}
+
+        
+<h1>{{ cabinet.name_text }}</h1>
+
+{% for update in latest_updates_list %}
+<div class = list-container>
+        {{ update.comment_text }}
+        {% if update.image_update %}
+                <img src="{{ update.image_update.url }}" alt="photo of {{ update.comment_text }}" class = 'update-image'>
+        {% endif %}
+</div>
+{% endfor %}
+
+{% if error_message %}<p><strong>{{ error_message }}</p></strong>{% endif %}
+
+
+    <form method = "post" enctype="multipart/form-data"> 
+            {% csrf_token %} 
+            {{ form.comment_text }}
+            {{ form.need_refill }}
+            {{ form.image_update }}
+            <button type="submit">Upload</button> 
+    </form>
+        
+{% endblock content %}
