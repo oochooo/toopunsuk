@@ -6,7 +6,7 @@ class CabinetForm(forms.ModelForm):
     class Meta:
         model = Cabinet
         fields = [
-            'name_text', 'image'
+            'name_text', 'image', 'lat', 'lng'
         ]
 
 class UpdateForm(forms.ModelForm):

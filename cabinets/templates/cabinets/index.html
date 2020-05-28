@@ -3,11 +3,18 @@
 
 {% block content %}
 
+{% if current_loc %}
+
+your coordinate: {{ current_loc.lat }}, {{ current_loc.lng }}
+
+{% endif %}
+
 {% if recent_cabinets_list %}
 
         {% for cabinet in recent_cabinets_list %}
         <div class = 'list-container'>
             <a href="{% url 'cabinets:detail' cabinet.id %}">{{ cabinet.name_text }}</a><br>
+            {{  cabinet.distance.dist }} km away from you. Accuracy: {{  cabinet.distance.accuracy }} km.
             <img src="{{ cabinet.image.url }}" alt="photo of {{ cabinet.name_text }}" class = 'cabinet-image'>
             {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
         </div>

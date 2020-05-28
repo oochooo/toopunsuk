@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from .secretkeys import GOOGLE_MAPS_API_KEY, SECRET_KEY
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ig+zlo!u)ef@j10psa9^d0q7!*!ei2=#4)b@fc=hjc+ozc^thr'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'cabinets.apps.CabinetsConfig',
     'django_google_maps',
+    'django.contrib.gis',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -72,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'toopunsuk.wsgi.application'
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyBI4kxDHtCMSEyn-hKkOtCXm906ocUisIs'
+GOOGLE_MAPS_API_KEY = GOOGLE_MAPS_API_KEY
 
 
 # Database
@@ -88,7 +90,7 @@ GOOGLE_MAPS_API_KEY = 'AIzaSyBI4kxDHtCMSEyn-hKkOtCXm906ocUisIs'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'geodjango',
         'USER': 'cho_dev',
         'PASSWORD': 'superokkisp1152',

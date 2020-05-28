@@ -3,14 +3,19 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
+
 from .models import Cabinet
 from .forms import CabinetForm, UpdateForm
+from .gmap_req import get_current_loc
+
 
 # Create your views here.
 
 def index(request):
+    
     recent_cabinets_list = Cabinet.objects.order_by('pub_date')
-    return render(request, 'cabinets/index.html', {'recent_cabinets_list' : recent_cabinets_list})
+    current_loc = get_current_loc()
+    return render(request, 'cabinets/index.html', {'recent_cabinets_list' : recent_cabinets_list, 'current_loc': current_loc})
 
 def detail(request, cabinet_id):
 
