@@ -15,7 +15,7 @@ html, body{
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
-    padding: 30px 0;
+    padding: 30px 40px;
     border-bottom: 1px solid rgba(94, 93, 93, 0.438) ;
 }
 

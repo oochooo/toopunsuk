@@ -5,7 +5,6 @@
 
 {% if recent_cabinets_list %}
 
-    <ul>
         {% for cabinet in recent_cabinets_list %}
         <div class = 'list-container'>
             <a href="{% url 'cabinets:detail' cabinet.id %}">{{ cabinet.name_text }}</a><br>
@@ -13,8 +12,7 @@
             {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
         </div>
         {% endfor %}
-    </ul>
-
+   
 {% else %}
 
     <p>theres no cabinet in the db.</p>

@@ -78,10 +78,22 @@ GOOGLE_MAPS_API_KEY = 'AIzaSyBI4kxDHtCMSEyn-hKkOtCXm906ocUisIs'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'geodjango',
+        'USER': 'cho_dev',
+        'PASSWORD': 'superokkisp1152',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
