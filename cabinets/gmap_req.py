@@ -12,7 +12,7 @@ def get_current_loc():
 
     req = requests.post(url, data = myobj)
     data = json.loads(req.text)
-    print(data)
+    print('getting current location via gmap_req.py. printing json response: ', data)
 
     return {'lat': data['location']['lat'], 'lng': data['location']['lng'], 'accuracy': data['accuracy']}
 

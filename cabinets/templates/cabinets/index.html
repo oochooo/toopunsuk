@@ -14,7 +14,8 @@ your coordinate: {{ current_loc.lat }}, {{ current_loc.lng }}
         {% for cabinet in recent_cabinets_list %}
         <div class = 'list-container'>
             <a href="{% url 'cabinets:detail' cabinet.id %}">{{ cabinet.name_text }}</a><br>
-            {{  cabinet.distance.dist }} km away from you. Accuracy: {{  cabinet.distance.accuracy }} km.
+            {{  cabinet.distance.dist }} km away from you. Accuracy: {{  cabinet.distance.accuracy }} km.<br>
+            <a href="{{ cabinet.open_map_directions }}">click here for directions</a>
             <img src="{{ cabinet.image.url }}" alt="photo of {{ cabinet.name_text }}" class = 'cabinet-image'>
             {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
         </div>
