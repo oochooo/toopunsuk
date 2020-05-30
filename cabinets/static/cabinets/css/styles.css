@@ -19,12 +19,17 @@ html, body{
     border-bottom: 1px solid rgba(94, 93, 93, 0.438) ;
 }
 
+
 .cabinet-image {
     display: block;
     max-width: 30%;
+    width: auto;
+    height: auto;
 }
 
 .update-image {
     display: block;
     max-width: 30%;
+    width: auto;
+    height: auto;
 }

@@ -14,8 +14,8 @@ from .gmap_req import get_current_loc
 def index(request):
     
     recent_cabinets_list = Cabinet.objects.order_by('pub_date')
-    current_loc = get_current_loc()
-    return render(request, 'cabinets/index.html', {'recent_cabinets_list' : recent_cabinets_list, 'current_loc': current_loc})
+    return render(request, 'cabinets/index.html', {'recent_cabinets_list' : recent_cabinets_list})
+
 
 def detail(request, cabinet_id):
 

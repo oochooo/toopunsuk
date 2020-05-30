@@ -1,23 +1,33 @@
 {% extends 'cabinets/base.html' %}
 
+    
+
 
 {% block content %}
 
-{% if current_loc %}
 
-your coordinate: {{ current_loc.lat }}, {{ current_loc.lng }}
+your coord using js >> <span id = 'locLat'></span><span id ='locLng'></span>
 
-{% endif %}
 
 {% if recent_cabinets_list %}
 
         {% for cabinet in recent_cabinets_list %}
+        <script>
+            let locfor{{ cabinet.id }} = 'somevar{{  cabinet.id }}'
+        </script>
         <div class = 'list-container'>
             <a href="{% url 'cabinets:detail' cabinet.id %}">{{ cabinet.name_text }}</a><br>
             {{  cabinet.distance.dist }} km away from you. Accuracy: {{  cabinet.distance.accuracy }} km.<br>
             <a href="{{ cabinet.open_map_directions }}">click here for directions</a>
-            <img src="{{ cabinet.image.url }}" alt="photo of {{ cabinet.name_text }}" class = 'cabinet-image'>
+            {% if cabinet.update_set.last.image_update %}<img src="{{ cabinet.update_set.last.image_update.url }}" alt="photo of {{ cabinet.name_text }}" class = 'cabinet-image'>
             {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
+            {% else %}
+
+            {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
+            
+            {% endif %}
+
+            
         </div>
         {% endfor %}
    
@@ -26,5 +36,10 @@ your coordinate: {{ current_loc.lat }}, {{ current_loc.lng }}
     <p>theres no cabinet in the db.</p>
 
 {% endif %}
+
+{% load static %}
+
+<script src="{%  static 'cabinets/scripts/getLoc.js' %}"></script>
+<script src="{%  static 'cabinets/scripts/main.js' %}"></script>
 
 {% endblock content %}

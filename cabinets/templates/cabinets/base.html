@@ -8,6 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'cabinets/css/styles.css' %}">
     <title>ตู้ปันสุข</title>
+
+    
+    {% block style %}
+        
+    {% endblock style %}
+        
+    
+    {% block head %}
+        
+    {% endblock head %}
+        
 </head>
 <body>
 
@@ -16,4 +27,12 @@
     </div>
     
 </body>
+<script>
+
+{% block script %}
+
+
+{% endblock script %}
+
+</script>
 </html>
