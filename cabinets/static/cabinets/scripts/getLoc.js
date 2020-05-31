@@ -47,17 +47,14 @@ function showPosition(position) {
 currentLoc = [position.coords.latitude, position.coords.longitude]
 
 for (let index = 0; index < jsonLoc.length; index++) {
-
-    thisVerySpecificDiv = document.getElementById('loctarget' + jsonLoc[index].cabinet_id);
-    distance = haversineDistance([jsonLoc[index].data.lat, jsonLoc[index].data.lng], currentLoc);
-    thisVerySpecificDiv.dataset.distance = distance
-
-    var sortedByLoc = categoryItemsArray.sort(sorter)
-    console.log(sortedByLoc)
-    sortedByLoc.forEach(e => document.querySelector("#big-container").appendChild(e));
-    
-    
+thisVerySpecificDiv = document.getElementById('loctarget' + jsonLoc[index].cabinet_id);
+distance = haversineDistance([jsonLoc[index].data.lat, jsonLoc[index].data.lng], currentLoc);
+thisVerySpecificDiv.dataset.distance = distance   
 }
+
+var sortedByLoc = categoryItemsArray.sort(sorter)
+console.log('sorted divs by dist >> ', sortedByLoc)
+sortedByLoc.forEach(e => document.querySelector("#big-container").appendChild(e));
 
 locString = currentLoc[0] + ', ' +  currentLoc[1]
 document.getElementById('locbyjs').innerHTML = locString
