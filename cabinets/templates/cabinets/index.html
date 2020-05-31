@@ -1,23 +1,12 @@
 {% extends 'cabinets/base.html' %}
-
-    
-
-
 {% block content %}
-
-
-your coord using js >> <span id = 'locLat'></span><span id ='locLng'></span>
-
-
+your coord using js >> <span id = 'locbyjs'></span>
 {% if recent_cabinets_list %}
 
         {% for cabinet in recent_cabinets_list %}
-        <script>
-            let locfor{{ cabinet.id }} = 'somevar{{  cabinet.id }}'
-        </script>
-        <div class = 'list-container'>
+    
+        <div class = 'list-container' id ='loctarget{{ cabinet.id }}' data-loc="{{ cabinet.lat }}, {{ cabinet.lng }}">
             <a href="{% url 'cabinets:detail' cabinet.id %}">{{ cabinet.name_text }}</a><br>
-            {{  cabinet.distance.dist }} km away from you. Accuracy: {{  cabinet.distance.accuracy }} km.<br>
             <a href="{{ cabinet.open_map_directions }}">click here for directions</a>
             {% if cabinet.update_set.last.image_update %}<img src="{{ cabinet.update_set.last.image_update.url }}" alt="photo of {{ cabinet.name_text }}" class = 'cabinet-image'>
             {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
@@ -37,6 +26,9 @@ your coord using js >> <span id = 'locLat'></span><span id ='locLng'></span>
 
 {% endif %}
 
+<script id ='load-loc-json'>
+var jsonLoc = JSON.parse('{{ cabinet_loc | safe }}');
+</script>
 {% load static %}
 
 <script src="{%  static 'cabinets/scripts/getLoc.js' %}"></script>

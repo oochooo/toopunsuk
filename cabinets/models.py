@@ -13,10 +13,10 @@ class Cabinet(models.Model):
     lat = models.DecimalField(('lat'), max_digits=10, decimal_places=8, null=True)
     lng = models.DecimalField(('lng'), max_digits=11, decimal_places=8, null=True)
 
-    def distance(self):
+    '''def distance(self):
         current_loc = get_current_loc()
         dist = hs_distance(current_loc, {'lat' : self.lat, 'lng' : self.lng})
-        return {'dist': round(dist, 2), 'accuracy': current_loc['accuracy']/1000}
+        return {'dist': round(dist, 2), 'accuracy': current_loc['accuracy']/1000}'''
 
     def open_map_directions(self):
         link = "https://www.google.com/maps/dir/?api=1&destination=" + str(self.lat) + ',' + str(self.lng)

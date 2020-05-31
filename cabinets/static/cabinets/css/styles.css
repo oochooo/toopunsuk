@@ -3,6 +3,10 @@ html, body{
     font-family: 'Playfair Display', 'Sarabun', serif;
 }
 
+.bigger-container{
+    width: auto;
+}
+
 .big-container {
     display: grid;
     width: 800px;

@@ -5,6 +5,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Sarabun:wght@200&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <link rel=rel="icon" 
+    type="image/png" href="{% static 'cabinets/favicon/favicon1.png' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'cabinets/css/styles.css' %}">
     <title>ตู้ปันสุข</title>
@@ -21,18 +23,9 @@
         
 </head>
 <body>
-
-    <div class = 'big-container'>
+    <div class = 'big-container' id = 'big-container'>
         {% block content %}{% endblock content %}
     </div>
-    
 </body>
-<script>
-
-{% block script %}
-
-
-{% endblock script %}
-
-</script>
+<script>{% block script %}{% endblock script %}</script>
 </html>
