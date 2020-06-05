@@ -5,12 +5,9 @@ from . import views
 app_name = 'cabinets'
 
 urlpatterns = [
-    # ex: /cabinet/
     path('', views.index, name='index'),
-    # ex: /cabinet/5/
-    path('<int:cabinet_id>/', views.detail, name='detail'),
-    # ex: /cabinet/5/results/
+    path('cabinetttttytytytyttyytytytyttt/<int:cabinet_id>/', views.detail, name='detail'),
     path('newcabinet/', views.new_cabinet, name='new_cabinet'),
-    # ex: /cabinet/5/update/
-    #path('<int:cabinet_id>/update/', views.update, name='update')
+    path('dashboard/', views.covid_dashboard, name='covid_dashboard'),
+    path('privacy/', views.privacy_policy, name='privacy_policy')
 ]

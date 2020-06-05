@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Sarabun:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <link rel=rel="icon" 
     type="image/png" href="{% static 'cabinets/favicon/favicon1.png' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'cabinets/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>ตู้ปันสุข</title>
 
     
@@ -23,9 +24,24 @@
         
 </head>
 <body>
+
+
+<div class="topnav" id="dasTopnav">
+<div>   <a href="{% url 'cabinets:index' %}" class = "active">Cabinets</a>
+    <a href="{% url 'cabinets:new_cabinet' %}">Submit New</a>
+    <a href="{% url 'cabinets:privacy_policy' %}">Privacy Policy</a>
+    <a href="{% url 'cabinets:covid_dashboard' %}" style="font-size: small; margin-top: 4px;">Covid-19 patients</a>
+</div> 
+    <a href="javascript:void(0);" class="icon" onclick="collapseNav()">
+      <i class="fa fa-bars paddedlinks"></i>
+    </a>
+  </div>
+
+
+  
     <div class = 'big-container' id = 'big-container'>
         {% block content %}{% endblock content %}
     </div>
 </body>
-<script>{% block script %}{% endblock script %}</script>
 </html>
+<script src = "{% static 'cabinets/scripts/main.js' %}"></script>

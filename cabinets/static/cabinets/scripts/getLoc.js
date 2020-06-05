@@ -49,7 +49,9 @@ currentLoc = [position.coords.latitude, position.coords.longitude]
 for (let index = 0; index < jsonLoc.length; index++) {
 thisVerySpecificDiv = document.getElementById('loctarget' + jsonLoc[index].cabinet_id);
 distance = haversineDistance([jsonLoc[index].data.lat, jsonLoc[index].data.lng], currentLoc);
-thisVerySpecificDiv.dataset.distance = distance   
+thisVerySpecificDiv.dataset.distance = distance;
+var thisVerySpecificLocSpan = document.getElementById('locspan' + jsonLoc[index].cabinet_id);
+thisVerySpecificLocSpan.innerHTML = distance.toFixed(2) + ' km away from you  ';
 }
 
 var sortedByLoc = categoryItemsArray.sort(sorter)
@@ -57,9 +59,6 @@ console.log('sorted divs by dist >> ', sortedByLoc)
 sortedByLoc.forEach(e => document.querySelector("#big-container").appendChild(e));
 
 locString = currentLoc[0] + ', ' +  currentLoc[1]
-document.getElementById('locbyjs').innerHTML = locString
 }
 
 getLocation()
-
-

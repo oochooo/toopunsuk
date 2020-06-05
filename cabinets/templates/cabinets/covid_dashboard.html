@@ -1,0 +1,21 @@
+{% extends 'cabinets/base.html' %}
+{% block content %}
+
+
+{% if covid_list_to_print %}
+<div style = 'padding: 30px 40px;'>
+<span style = 'margin-bottom: 30px; font-style: italic; font-size: small;'>{{ last_api_date }}
+</span>
+
+{% for patient in covid_list_to_print %}
+<p class = 'patient'>{{ patient }}</p>
+{% endfor %}
+
+{% else %}
+<p>There's a problem fetching data.</p>
+{% endif %}
+    
+</div>
+    
+
+{% endblock content %}

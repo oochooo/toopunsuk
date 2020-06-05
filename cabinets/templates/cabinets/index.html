@@ -1,23 +1,14 @@
 {% extends 'cabinets/base.html' %}
 {% block content %}
-your coord using js >> <span id = 'locbyjs'></span>
 {% if recent_cabinets_list %}
 
         {% for cabinet in recent_cabinets_list %}
     
         <div class = 'list-container' id ='loctarget{{ cabinet.id }}' data-loc="{{ cabinet.lat }}, {{ cabinet.lng }}">
-            <a href="{% url 'cabinets:detail' cabinet.id %}">{{ cabinet.name_text }}</a><br>
-            <a href="{{ cabinet.open_map_directions }}">click here for directions</a>
-            {% if cabinet.update_set.last.image_update %}<img src="{{ cabinet.update_set.last.image_update.url }}" alt="photo of {{ cabinet.name_text }}" class = 'cabinet-image'>
-            {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
-            {% else %}
-
-            {{ cabinet.update_set.last.comment_text }} - updated: {{ cabinet.update_set.last.pub_date }}
-            
-            {% endif %}
-
-            
-        </div>
+            <a href="{% url 'cabinets:detail' cabinet.id %}"><h1>{{ cabinet.name_text }}</h1></a>
+            <div class = 'detailsText'><span id ='locspan{{ cabinet.id }}' class = 'someText'></span><a href="{{ cabinet.open_map_directions }}" class = 'someText'>open in google maps</a></div>
+            <p>latest update on: {{ cabinet.update_set.last.pub_date }}</p>
+            {{ cabinet.update_set.last.comment_text }} </div>
         {% endfor %}
    
 {% else %}
@@ -32,6 +23,5 @@ var jsonLoc = JSON.parse('{{ cabinet_loc | safe }}');
 {% load static %}
 
 <script src="{%  static 'cabinets/scripts/getLoc.js' %}"></script>
-<script src="{%  static 'cabinets/scripts/main.js' %}"></script>
 
 {% endblock content %}
