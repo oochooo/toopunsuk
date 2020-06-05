@@ -51,7 +51,7 @@ thisVerySpecificDiv = document.getElementById('loctarget' + jsonLoc[index].cabin
 distance = haversineDistance([jsonLoc[index].data.lat, jsonLoc[index].data.lng], currentLoc);
 thisVerySpecificDiv.dataset.distance = distance;
 var thisVerySpecificLocSpan = document.getElementById('locspan' + jsonLoc[index].cabinet_id);
-thisVerySpecificLocSpan.innerHTML = distance.toFixed(2) + ' km away from you  ';
+thisVerySpecificLocSpan.innerHTML = distance.toFixed(2) + ' km away from you';
 }
 
 var sortedByLoc = categoryItemsArray.sort(sorter)

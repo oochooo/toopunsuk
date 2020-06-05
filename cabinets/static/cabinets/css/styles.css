@@ -25,15 +25,21 @@ a:visited {
 
 .someText{
     color: teal;
+    margin-left: 15px;
+    background-color: khaki;
+    padding: 5px 10px;
 }
 
 .detailsText {
-    display: grid;
-    grid-auto-flow: row;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
     color: teal;
     font-size: small;
     grid-gap: 5px;
 }
+
 .list-container {
     display: flex;
     flex-direction: column;
@@ -67,6 +73,7 @@ body {
     font-family: 'Nanum Gothic Coding','Kanit', monospace;
     background-color: #abc3ce;
     color: rgb(56, 56, 56);
+    white-space: nowrap;
   }
   
   .topnav {

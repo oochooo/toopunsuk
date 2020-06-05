@@ -6,8 +6,8 @@
     
         <div class = 'list-container' id ='loctarget{{ cabinet.id }}' data-loc="{{ cabinet.lat }}, {{ cabinet.lng }}">
             <a href="{% url 'cabinets:detail' cabinet.id %}"><h1>{{ cabinet.name_text }}</h1></a>
-            <div class = 'detailsText'><span id ='locspan{{ cabinet.id }}' class = 'someText'></span><a href="{{ cabinet.open_map_directions }}" class = 'someText'>open in google maps</a></div>
-            <p>latest update on: {{ cabinet.update_set.last.pub_date }}</p>
+            <div class = 'detailsText'><span id ='locspan{{ cabinet.id }}'></span><a href="{{ cabinet.open_map_directions }}" class = 'someText'>open in google maps</a></div>
+            <p style = 'font-size: smaller;'>Most recent update: {{ cabinet.update_set.last.pub_date }}</p>
             {{ cabinet.update_set.last.comment_text }} </div>
         {% endfor %}
    
