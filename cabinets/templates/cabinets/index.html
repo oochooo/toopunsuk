@@ -5,8 +5,8 @@
         {% for cabinet in recent_cabinets_list %}
     
         <div class = 'list-container' id ='loctarget{{ cabinet.id }}' data-loc="{{ cabinet.lat }}, {{ cabinet.lng }}">
-            <a href="{% url 'cabinets:detail' cabinet.id %}"><h1>{{ cabinet.name_text }}</h1></a>
-            <div class = 'detailsText'><span id ='locspan{{ cabinet.id }}'></span><a href="{{ cabinet.open_map_directions }}" class = 'someText'>open in google maps</a></div>
+            <a href="{% url 'cabinets:detail' cabinet.id %}"><p style="overflow-wrap: break-word; font-size: x-large; color: azure;">{{ cabinet.name_text }}</p></a>
+            <div class = 'detailsText'><span id ='locspan{{ cabinet.id }}'>Please enable geolocation.</span><a href="{{ cabinet.open_map_directions }}" class = 'someText'>open in google maps</a></div>
             <p style = 'font-size: smaller;'>Most recent update: {{ cabinet.update_set.last.pub_date }}</p>
             {{ cabinet.update_set.last.comment_text }} </div>
         {% endfor %}

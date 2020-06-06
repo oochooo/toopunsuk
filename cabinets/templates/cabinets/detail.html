@@ -5,28 +5,33 @@
 
         
 
+<div  style="margin-bottom: 30px; padding-left: 20px; padding-right: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<p style="overflow-wrap: break-word; font-size: larger; color: azure;">Submit an update for: {{ cabinet.name_text }}</p>
+<div class = 'detailsText'><a href="{{ cabinet.open_map_directions }}" class = 'someText'>open in google maps</a></div>
+</div>
+<form method = "post" enctype="multipart/form-data"  style="margin-bottom: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+        {% csrf_token %}
+        <p>{{ form.comment_text }}</p>
+        <p>{{ form.image_update }}</p>
+        <button type="submit">Upload</button> 
+</form>
 
 
-        <div class = 'list-container'>
-                <h1>{{ cabinet.name_text }}</h1>
-                {% for update in latest_updates_list %}
-                {{ update.comment_text }}
-                {% if update.image_update %}
-                        <img src="{{ update.image_update.url }}" alt="photo of {{ update.comment_text }}" class = 'update-image'>
-                {% endif %}
-                {% endfor %}
-        </div>
+{% for update in latest_updates_list %}
+<div class = 'list-container'>
+        {% if update.image_update %}
+        <img src="{{ update.image_update.url }}" alt="photo of {{ update.comment_text }}" class = 'update-image'>
+{% endif %}
+<p style="font-size: small; margin-bottom: 15px;">{{ update.comment_text }}</p>
+
+</div>
+{% endfor %}
+
 
 
 {% if error_message %}<p><strong>{{ error_message }}</p></strong>{% endif %}
 
 
-    <form method = "post" enctype="multipart/form-data"> 
-            {% csrf_token %} 
-            {{ form.comment_text }}
-            {{ form.need_refill }}
-            {{ form.image_update }}
-            <button type="submit">Upload</button> 
-    </form>
+    
         
 {% endblock content %}

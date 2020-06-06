@@ -4,65 +4,82 @@
 }*/
 
 .bigger-container{
-    width: auto;
+  max-width: 600px;
 }
 
+form p {
+  display: flex;
+  flex-flow: column;
+}
+
+label{
+  margin: 7px auto;
+}
+
+
 .big-container {
-    display: grid;
-    width: 800px;
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
     margin: 0 auto;
-    margin-top: 55px;
+    margin-top: 30px;
 }
 
 a, h1{
     color: rgb(247, 247, 245);
     text-decoration: none;
+    overflow-wrap: break-word;
 }
 
 a:visited {
     color: teal;
 }
 
+button, input, textarea{
+  background-color: rgb(236, 233, 204);
+  padding: 3px 7px;
+  border: 1px;
+}
+
 .someText{
     color: teal;
-    margin-left: 15px;
+    margin-left: 5px;
     background-color: khaki;
-    padding: 5px 10px;
+    padding: 5px 5px;
 }
 
 .detailsText {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: start space-between;
     color: teal;
     font-size: small;
     grid-gap: 5px;
 }
 
 .list-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    padding: 40px 40px;
-    border-bottom: 1px solid rgba(59, 78, 78, 0.288);
-    overflow-wrap: break-word;
+  display: grid;
+  max-width: 310px;
+  margin: 0 auto;
+  padding: 20px 0px;
+  border-bottom: 2px solid rgba(59, 78, 78, 0.288);
+  overflow-wrap: break-word;
 }
 
 
 .cabinet-image {
     display: block;
-    max-width: 30%;
     width: auto;
     height: auto;
 }
 
 .update-image {
-    display: block;
-    max-width: 30%;
-    width: auto;
-    height: auto;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 230px;
+  max-height: 230px;
 }
 
 /* w3 collapsible navbar */
@@ -73,7 +90,7 @@ body {
     font-family: 'Nanum Gothic Coding','Kanit', monospace;
     background-color: #abc3ce;
     color: rgb(56, 56, 56);
-    white-space: nowrap;
+    white-space: normal;
   }
   
   .topnav {

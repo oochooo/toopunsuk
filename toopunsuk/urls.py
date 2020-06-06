@@ -20,10 +20,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     
-    #path('', include('dashboard.urls')), too add dashboard on home!
     path('', include('cabinets.urls')),
     path('admin/', admin.site.urls),
-    #path(('media/', ))
 ]
 
 if settings.DEBUG:
