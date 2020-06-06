@@ -22,14 +22,15 @@
         {% if update.image_update %}
         <img src="{{ update.image_update.url }}" alt="photo of {{ update.comment_text }}" class = 'update-image'>
 {% endif %}
-<p style="font-size: small; margin-bottom: 15px;">{{ update.comment_text }}</p>
+<p style="margin-bottom: 15px;">{{ update.comment_text }}</p>
+<p style="font-size: small; margin-bottom: 15px;">Submitted on: {{ update.pub_date }}</p>
 
 </div>
 {% endfor %}
 
 
 
-{% if error_message %}<p><strong>{{ error_message }}</p></strong>{% endif %}
+{% if error_message %}<p>{{ error_message }}</p>{% endif %}
 
 
     

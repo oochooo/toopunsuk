@@ -79,7 +79,7 @@ button, input, textarea{
   width: auto;
   height: auto;
   max-width: 230px;
-  max-height: 230px;
+  max-height: 400px;
 }
 
 /* w3 collapsible navbar */
